@@ -22,11 +22,13 @@
         </el-form-item>
 
         <el-form-item label="抢票成功短信">
-            <el-switch v-model="form_data.send_message"/>
-            <el-input v-model="input" placeholder="请输入门票名称" style="width:450px;" clearable></el-input>
-            <el-input v-model="input" placeholder="请输入时间" style="width:300px;" clearable ></el-input>
-            <el-input v-model="input" placeholder="请输入地点" style="width:450px;" clearable></el-input>
-            <el-input :placeholder="form_data.holder" v-model="input1" :disabled="true" type="textarea" :rows="4" style="width:450px;"></el-input>
+            <div style="display:block;">
+            <el-switch v-model="form_data.send_message" style="display:block margin:20px,0;"/>
+            </div>
+            <el-input v-model="form_data.ticket_name" placeholder="请输入门票名称" style="width:700px" clearable></el-input>
+            <el-input v-model="form_data.ticket_date" placeholder="请输入时间" style="width:700px;" clearable ></el-input>
+            <el-input v-model="form_data.ticket_place" placeholder="请输入地点" style="width:700px;" clearable></el-input>
+            <el-input :placeholder="`【西电学生会】您好，恭喜您获得${form_data.ticket_name}一张。请于${form_data.ticket_name}凭短信与本人一卡通前往${form_data.ticket_name}}领取您的门票。（感谢西电为之工作室对本次抢票提供的技术支持）`" v-model="input1" :disabled="true" type="textarea" :rows="4" style="width:700px;"></el-input>
         </el-form-item>
   
         <el-form-item>
@@ -49,9 +51,9 @@ export default {
             send_message: true,
             message_content: '',
             num1:'',
-            ticket_name:'',
-            ticket_date:'',
-            ticket_place:'',
+            ticket_name:'{门票名称}',
+            ticket_date:'{时间}',
+            ticket_place:'{地点}',
             holder:'',
         },
     }),
@@ -68,15 +70,7 @@ export default {
             console.log(value);
         }
     },
-    watch: {
-    radio: function () {
-    if (this.radio === '1') {
-      this.holder = '请输入卖家账号'
-    } else {
-      this.holder = '请输入买家账号'
-    }
-  }
-}
+    
 }
 </script>
 
