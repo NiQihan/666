@@ -18,9 +18,12 @@
       </el-table-column>  
       <el-table-column label="">
         <template slot-scope="scope">
-            <el-button
+          <el-badge :value="12" class="item">
+          <el-button
           size="mini"
+          type="warning"
           @click="handleEdit(scope.$index, scope.row)">反馈</el-button>
+          </el-badge> 
         <el-button
           size="mini"
           type="danger"
@@ -51,4 +54,11 @@
       }
     }
   </script>
- 
+<style>
+.item{
+  margin-top: 10px;
+  margin-right: 40px;
+}
+
+
+</style>
