@@ -31,7 +31,7 @@
         </el-form-item>
   
         <el-form-item>
-            <el-button type="primary" @click="submit">立即创建</el-button>
+            <el-button type="primary" @click="submit">创建活动</el-button>
             <el-button @click="reset">重置</el-button>
         </el-form-item>
 </el-form>    
