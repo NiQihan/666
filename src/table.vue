@@ -1,5 +1,8 @@
 <template>
+<!-- 历史活动表格 -->
     <el-table :data="history_data" style="width: 100%" stripe>
+
+      <!-- 活动名称 -->
       <el-table-column prop="name" label="活动名称" width="400">
         <template slot-scope="scope">
           <span style="margin-left: 10px">{{ scope.row.name + "&nbsp;&nbsp;&nbsp;"}}</span>
@@ -7,13 +10,19 @@
           <el-tag type="danger" v-else-if="scope.row.state === 'end'">已结束</el-tag>
       </template>
       </el-table-column>
+
+      <!-- 抢票开始时间 -->
       <el-table-column prop="date" label="抢票开始时间" width="200" center></el-table-column>
-      <el-table-column prop="amount" label="活动人数" width="120"></el-table-column>    
+
+      <!-- 活动人数 -->
+      <el-table-column prop="amount" label="活动人数" width="120"></el-table-column> 
+
+      <!-- 操作   -->
       <el-table-column label="操作">
         <template slot-scope="scope">
-            <el-button size="mini" @click="dialogFormVisible = true">信息编辑{{ scope.row.name + "&nbsp;&nbsp;&nbsp;"}}</el-button>
-            <el-dialog title="信息编辑" :visible.sync="dialogFormVisible">
-              <el-form :model="form" label-width="120px">
+            <el-button size="mini" @click="dialogFormVisible = true,handleDelete(scope.$index, scope.row)">信息编辑</el-button>
+            <!-- <el-dialog title="信息编辑" :visible.sync="dialogFormVisible">
+              <el-form :model="form" >
                 <el-form-item label="活动名称">
                   <el-input placeholder="活动名称" v-model="form_data.name" clearable/>
                 </el-form-item>
@@ -50,12 +59,14 @@
     <el-button @click="dialogFormVisible = false">取 消</el-button>
     <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
   </div>
-</el-dialog>
+</el-dialog> -->
 
             <el-button type="link" size="mini">分享链接</el-button>
             <el-button type="QRcode" size="mini">导出数据</el-button>
         </template>
       </el-table-column>  
+
+      <!-- 反馈删除操作 -->
       <el-table-column label="">
         <template slot-scope="scope">
           <el-badge :value="12" class="item">
