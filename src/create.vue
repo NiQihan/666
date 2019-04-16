@@ -1,11 +1,11 @@
 <template>
     <el-form ref="form" :model="form_data" label-width="120px">
         <el-form-item label="活动名称">
-            <el-input placeholder="活动名称" v-model="form_data.name" clearable/>
+            <el-input placeholder="活动名称" v-model="form_data.name" clearable style="width:700px;"/>
         </el-form-item>
 
         <el-form-item label="活动详情">
-            <el-input type="textarea" autosize placeholder="请输入内容" v-model="form_data.detail"/>
+            <el-input type="textarea" autosize placeholder="请输入内容" v-model="form_data.detail" style="width:700px;"/>
         </el-form-item>
 
 
